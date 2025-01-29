@@ -47,7 +47,7 @@ public class UsuarioConverter {
     public Telefone paraTelefone(TelefoneDTO telefoneDTO){
         Telefone telefone = new Telefone();
         telefone.setTelefone(telefoneDTO.getTelefone());
-        telefone.setTelefone(telefoneDTO.getDdd());
+        telefone.setDdd(telefoneDTO.getDdd());
         return telefone;
     }
 
@@ -85,7 +85,7 @@ public class UsuarioConverter {
     public TelefoneDTO paraTelefoneDTO(Telefone telefoneDTO){
         TelefoneDTO telefone = new TelefoneDTO();
         telefone.setTelefone(telefoneDTO.getTelefone());
-        telefone.setTelefone(telefoneDTO.getDdd());
+        telefone.setDdd(telefoneDTO.getDdd());
         return telefone;
     }
 
