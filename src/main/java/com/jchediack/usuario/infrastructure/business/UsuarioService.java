@@ -4,6 +4,7 @@ import com.jchediack.usuario.infrastructure.business.converter.UsuarioConverter;
 import com.jchediack.usuario.infrastructure.business.dto.UsuarioDTO;
 import com.jchediack.usuario.infrastructure.entity.Usuario;
 import com.jchediack.usuario.infrastructure.exceptions.ConflictException;
+import com.jchediack.usuario.infrastructure.exceptions.ResourceNotFoundException;
 import com.jchediack.usuario.infrastructure.repository.UsuarioRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,15 @@ public class UsuarioService {
 
     public boolean verificaEmailExistente(String email) {
         return usuarioRepository.existsByEmail(email);
+    }
+
+    public Usuario buscaUsuarioPorEmail(String email) {
+        return usuarioRepository.findByEmail(email).orElseThrow(
+                () -> new ResourceNotFoundException("E-mail não encontrado: " + email));
+    }
+
+    public void deletaUsuarioPorEmail(String email) {
+        usuarioRepository.deleteByEmail(email);
     }
 
 }
