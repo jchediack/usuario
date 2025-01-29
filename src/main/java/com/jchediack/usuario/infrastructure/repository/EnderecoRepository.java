@@ -1,6 +1,6 @@
 package com.jchediack.usuario.infrastructure.repository;
 
-import com.javanauta.jorge.springboot.infrastructure.entity.Endereco;
+import com.jchediack.usuario.infrastructure.entity.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
